@@ -4,15 +4,12 @@ const startingScore = 0;
 const shapes = ["rock", "paper", "scissors", "rock"];
 let playerScore = (computerScore = startingScore);
 
-function computerPlay() {
+function randomPlay() {
   const randomIndex = Math.floor(Math.random() * (shapes.length - 1));
   return shapes[randomIndex];
 }
 
 function playRound(playerSelection, computerSelection) {
-  // playerSelection case-insensitive
-  playerSelection.toLowerCase();
-
   if (playerSelection == computerSelection)
     return `Tied! Both players choose ${playerSelection}`;
 
@@ -33,9 +30,9 @@ function game() {
 
     const playerSelection = prompt(
       `Round ${round + 1}. Choose your move form:`,
-      `${computerPlay()}`
-    );
-    const computerSelection = computerPlay();
+      `${randomPlay()}`
+    ).toLowerCase();
+    const computerSelection = randomPlay();
 
     console.log(`Your choice: ${playerSelection}`);
     console.log(`Computer choice: ${computerSelection}`);
