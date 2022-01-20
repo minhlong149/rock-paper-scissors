@@ -12,17 +12,29 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection)
     return `Tied! Both players choose ${playerSelection}`;
 
-	playerIndex = shapes.findIndex((shape) => shape == playerSelection);
+  playerIndex = shapes.findIndex((shape) => shape == playerSelection);
   if (shapes[playerIndex + 1] == computerSelection)
     return `You lose! ${computerSelection} beat ${playerSelection}`;
 
-	return `You win! ${playerSelection} beat ${computerSelection}`; 
+  return `You win! ${playerSelection} beat ${computerSelection}`;
 }
 
-const playerSelection = computerPlay();
-const computerSelection = computerPlay();
+function game() {
+  const rounds = 5;
+  for (let round = 0; round < rounds; ++round) {
+		console.log(`Round ${round+1}:`);
 
-console.log(`Your choice: ${playerSelection}`);
-console.log(`Computer choice: ${computerSelection}`);
+    const playerSelection = prompt(
+      `Round ${round+1}. Choose your move form:`,
+      `${computerPlay()}`
+    );
+    const computerSelection = computerPlay();
 
-console.log(playRound(playerSelection, computerSelection));
+    console.log(`Your choice: ${playerSelection}`);
+    console.log(`Computer choice: ${computerSelection}`);
+
+    console.log(playRound(playerSelection, computerSelection));
+  }
+}
+
+game();
