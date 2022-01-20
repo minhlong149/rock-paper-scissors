@@ -1,4 +1,8 @@
+const rounds = 5;
+const startingScore = 0;
+
 const shapes = ["rock", "paper", "scissors", "rock"];
+let playerScore = (computerScore = startingScore);
 
 function computerPlay() {
   const randomIndex = Math.floor(Math.random() * (shapes.length - 1));
@@ -12,20 +16,23 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection)
     return `Tied! Both players choose ${playerSelection}`;
 
-  playerIndex = shapes.findIndex((shape) => shape == playerSelection);
-  if (shapes[playerIndex + 1] == computerSelection)
-    return `You lose! ${computerSelection} beat ${playerSelection}`;
+  const playerIndex = shapes.findIndex((shape) => shape == playerSelection);
 
+  if (shapes[playerIndex + 1] == computerSelection) {
+    computerScore++;
+    return `You lose! ${computerSelection} beat ${playerSelection}`;
+  }
+
+  playerScore++;
   return `You win! ${playerSelection} beat ${computerSelection}`;
 }
 
 function game() {
-  const rounds = 5;
   for (let round = 0; round < rounds; ++round) {
-		console.log(`Round ${round+1}:`);
+    console.log(`Round ${round + 1}:`);
 
     const playerSelection = prompt(
-      `Round ${round+1}. Choose your move form:`,
+      `Round ${round + 1}. Choose your move form:`,
       `${computerPlay()}`
     );
     const computerSelection = computerPlay();
@@ -34,6 +41,8 @@ function game() {
     console.log(`Computer choice: ${computerSelection}`);
 
     console.log(playRound(playerSelection, computerSelection));
+
+    console.log(`Scoreboard: ${playerScore} - ${computerScore}`);
   }
 }
 
