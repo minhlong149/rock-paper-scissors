@@ -24,23 +24,18 @@ function playRound(playerSelection, computerSelection) {
   return `You win! ${playerSelection} beat ${computerSelection}`;
 }
 
-function game() {
-  for (let round = 0; round < rounds; ++round) {
-    console.log(`Round ${round + 1}:`);
+const scoreboard = document.querySelector("#score-board");
+const gamePlay = document.querySelector("#game-play");
+const buttons = document.querySelectorAll("button");
 
-    const playerSelection = prompt(
-      `Round ${round + 1}. Choose your move form:`,
-      `${randomPlay()}`
-    ).toLowerCase();
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const playerSelection = shapes[button.getAttribute("id")];
     const computerSelection = randomPlay();
 
-    console.log(`Your choice: ${playerSelection}`);
-    console.log(`Computer choice: ${computerSelection}`);
+    console.log(`Your choice: ${playerSelection} | Computer choice: ${computerSelection}`);
 
-    console.log(playRound(playerSelection, computerSelection));
-
-    console.log(`Scoreboard: ${playerScore} - ${computerScore}`);
-  }
-}
-
-game();
+    gamePlay.textContent = playRound(playerSelection, computerSelection);
+    scoreboard.textContent = `Scoreboard: ${playerScore} - ${computerScore}`;
+  });
+});
