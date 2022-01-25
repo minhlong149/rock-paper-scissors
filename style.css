@@ -21,18 +21,42 @@ h1 {
 }
 
 .btn {
-  background-color: hsla(160, 55%, 55%, 0.9);
+  background-color: rgb(238, 238, 238, 0.33);
   border-radius: 2em;
   margin: 1em;
 }
 
 .btn:hover {
   cursor: pointer;
-  background-color: hsl(160, 55%, 55%);
+  background-color: rgb(238, 238, 238, 0.67);
 }
 
 svg {
   width: 100px;
   height: 100px;
   fill: #eeeeee;
+}
+
+.win {
+  background-color: hsla(160, 55%, 55%, 0.9);
+}
+
+.win:hover {
+  background-color: hsla(160, 55%, 55%);
+}
+
+.lose {
+  background-color: hsl(346, 86%, 66%, 0.9);
+}
+
+.lose:hover {
+  background-color: hsl(346, 86%, 66%);
+}
+
+.tie {
+  background-color: rgb(249, 158, 22);
+}
+
+.tie:hover  {
+  background-color: rgb(249, 158, 22, 0.9);
 }
