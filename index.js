@@ -77,5 +77,7 @@ buttons.forEach((button) => {
         preProcess();
       });
     }
+    
+    setTimeout(preProcess, 1000);
   });
 });
