@@ -1,0 +1,33 @@
+/* https://colorhunt.co/palette/232931393e464ecca3eeeeee */
+
+@import url("https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@400;700&family=Sigmar+One&display=swap");
+
+body {
+  background-color: #232931;
+  color: #eeeeee;
+  font-family: "Montagu Slab", serif;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Sigmar One", cursive;
+  /* margin: 0 3.6em; */
+}
+
+#choice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background-color: hsla(160, 55%, 55%, 0.9);
+  border-radius: 2em;
+  margin: 1em;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: hsl(160, 55%, 55%);
+}
