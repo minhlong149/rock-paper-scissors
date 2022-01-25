@@ -1,7 +1,5 @@
-const startingScore = 0;
-
 const shapes = ["rock", "paper", "scissors", "rock"];
-let playerScore = (computerScore = startingScore);
+let playerScore = (computerScore = 0); // startingScore
 
 function randomPlay() {
   const randomIndex = Math.floor(Math.random() * (shapes.length - 1));
@@ -9,21 +7,19 @@ function randomPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection == computerSelection)
-    return `Tied! Both players choose ${playerSelection}`;
-
+  if (playerSelection == computerSelection) {
+    return;
+  }
   const playerIndex = shapes.findIndex((shape) => shape == playerSelection);
-
   if (shapes[playerIndex + 1] == computerSelection) {
     computerScore++;
-    return `You lose! ${computerSelection} beat ${playerSelection}`;
+    return;
   }
-
   playerScore++;
-  return `You win! ${playerSelection} beat ${computerSelection}`;
+  return;
 }
 
-const scoreboard = document.querySelector("#score-board");
+const scoreboard = document.querySelector("#score");
 const gamePlay = document.querySelector("#game-play");
 
 const buttons = document.querySelectorAll(".btn");
@@ -36,8 +32,8 @@ buttons.forEach((button) => {
       `Your choice: ${playerSelection} | Computer choice: ${computerSelection}`
     );
 
-    gamePlay.textContent = playRound(playerSelection, computerSelection);
-    scoreboard.textContent = `Scoreboard: ${playerScore} - ${computerScore}`;
+    const test = playRound(playerSelection, computerSelection);
+    scoreboard.textContent = `${playerScore} - ${computerScore}`;
 
     // if (playerScore === 5 || computerScore === 5) {
     //   const announced = document.createElement("p");
