@@ -11,14 +11,13 @@ body {
 
 h1 {
   font-family: "Sigmar One", cursive;
-  /* margin: 0 3.6em; */
 }
 
 #choice {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .btn {
@@ -30,4 +29,10 @@ h1 {
 .btn:hover {
   cursor: pointer;
   background-color: hsl(160, 55%, 55%);
+}
+
+svg {
+  width: 100px;
+  height: 100px;
+  fill: #eeeeee;
 }
